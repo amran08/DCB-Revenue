@@ -96,7 +96,7 @@ License: You must have a valid license purchased only from softbd
                 <a href="#">
 <!--                    <img src="img/logo-light.png" alt="logo" class="logo-default"/>-->
                 </a>
-                <h3 style="color: white; font-weight: bold"><?= __('MISC Case Management System') ?></h3>
+                <h3 style="color: white; font-weight: bold"><?= __('Plot Management System') ?></h3>
     <!--            <div class="menu-toggler sidebar-toggler"></div>-->
             </div>
             <!-- END LOGO -->
