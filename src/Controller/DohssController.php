@@ -70,18 +70,19 @@ class DohssController extends AppController {
             $data = $this->request->data;
             //$data['create_by'] = $user['id'];
             $data['create_time'] = $time;
-            $result = $this->FileUpload->upload_file($data['map_file'], 'u_load/map_files', ['jpg', 'png']);
+            $result = $this->FileUpload->upload_file_any_mime($data['map_file'], 'u_load/map_files');
 
             //echo "<pre>";print_r($result);die();
+           // debug($result);
+           
             $data['map_file'] = $result['file_name'];
-
-
             $dohs = $this->Dohss->patchEntity($dohs, $data);
-
+          
             if ($this->Dohss->save($dohs)) {
                 $this->Flash->success('The dohs has been saved.');
                 return $this->redirect(['action' => 'index']);
             } else {
+                
                 $this->Flash->error('The dohs could not be saved. Please, try again.');
             }
         }

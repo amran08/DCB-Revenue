@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Plots Controller
@@ -28,6 +29,10 @@ class PlotsController extends AppController {
             //'conditions' =>['Plots.status !=' => 99],
             'contain' => ['Districts', 'Upazilas', 'RsMoujas', 'Dohss', 'LandType']
         ]);
+
+
+
+
         $this->set('plots', $this->paginate($plots));
         $this->set('_serialize', ['plots']);
     }
@@ -70,13 +75,43 @@ class PlotsController extends AppController {
                 $this->Flash->error('The plot could not be saved. Please, try again.');
             }
         }
-        $districts = $this->Plots->Districts->find('list');
-        $upazilas = $this->Plots->Upazilas->find('list');
-        $moujas = $this->Plots->RsMoujas->find('list', ['conditions' => ['status' => 1]]);
+        $this->loadModel('Districts');
+
+        $districts = $this->Districts->find('list', [
+                    'keyField' => 'district_bbs_code',
+                    'keyValue' => 'name_en'
+                ])->toArray();
+
+
+        //$upazilas = $this->Plots->Upazilas->find('list');
+        //$moujas = $this->Plots->RsMoujas->find('list', ['conditions' => ['status' => 1]]);
         $dohs = $this->Plots->Dohss->find('list', ['conditions' => ['status' => 1]]);
         $landTypes = $this->Plots->LandType->find('list', ['conditions' => ['status' => 1]]);
         $this->set(compact('plot', 'districts', 'upazilas', 'moujas', 'dohs', 'landTypes'));
         $this->set('_serialize', ['plot']);
+    }
+
+    public function upazilaList($district_bbs_code) {
+        $this->autoRender = false;
+
+        $this->loadModel('Upazilas');
+        $upazilas = $this->Upazilas->find('all', [
+
+                    'conditions' => ['Upazilas.district_bbs_code' => $district_bbs_code]
+                ])->select(['id', 'name_bd'])->toArray();
+
+        $this->response->body(json_encode($upazilas));
+    }
+
+    public function moujaList($upazila_id) {
+        $this->autoRender = false;
+
+        $this->loadModel('RsMoujas');
+        $moujas = $this->RsMoujas->find('all', [
+                    'conditions' => ['RsMoujas.upazila_id' => $upazila_id]
+                ])->select(['id', 'name_bd'])->toArray();
+
+        $this->response->body(json_encode($moujas));
     }
 
     /**
@@ -90,8 +125,9 @@ class PlotsController extends AppController {
         $user = $this->Auth->user();
         $time = time();
         $plot = $this->Plots->get($id, [
-            'contain' => []
+            'contain' => ['Districts', 'Dohss','LandType']
         ]);
+        debug($plot['upazila_id']);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->data;
             $data['update_by'] = $user['id'];
@@ -104,12 +140,19 @@ class PlotsController extends AppController {
                 $this->Flash->error('The plot could not be saved. Please, try again.');
             }
         }
-        $districts = $this->Plots->Districts->find('list');
-        $upazilas = $this->Plots->Upazilas->find('list');
-        $moujas = $this->Plots->RsMoujas->find('list', ['conditions' => ['status' => 1]]);
+        $this->loadModel('Districts');
+
+        $districts = $this->Districts->find('list', [
+                    'keyField' => 'district_bbs_code',
+                    'keyValue' => 'name_en'
+                ])->toArray();
+        //  $upazilas = $this->Plots->Upazilas->find('list');
+        // $moujas = $this->Plots->RsMoujas->find('list', ['conditions' => ['status' => 1]]);
         $dohs = $this->Plots->Dohss->find('list', ['conditions' => ['status' => 1]]);
         $landTypes = $this->Plots->LandType->find('list', ['conditions' => ['status' => 1]]);
-        $this->set(compact('plot', 'districts', 'upazilas', 'moujas', 'dohs', 'landTypes'));
+
+
+        $this->set(compact('plot','districts','dohs','landTypes'));
         $this->set('_serialize', ['plot']);
     }
 
