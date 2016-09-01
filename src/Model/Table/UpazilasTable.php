@@ -29,7 +29,7 @@ class UpazilasTable extends Table
         parent::initialize($config);
 
         $this->table('upazilas');
-        $this->displayField('name_en');
+        $this->displayField('name_bd');
         $this->primaryKey('id');
 
         $this->hasMany('DglrAreaTable', [
