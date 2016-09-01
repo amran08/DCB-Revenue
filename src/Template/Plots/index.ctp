@@ -41,7 +41,11 @@ $status = \Cake\Core\Configure::read('status_options');
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($plots as $key => $plot) { ?>
+                            <?php
+                            foreach ($plots as $key => $plot) {
+
+                               // debug($plot);
+                                ?>
                                 <tr>
                                     <td><?= $this->Number->format($key + 1) ?></td>
                                     <td><?=
@@ -93,7 +97,7 @@ $status = \Cake\Core\Configure::read('status_options');
                                     </td>
                                 </tr>
 
-                            <?php } ?>
+<?php } ?>
                         </tbody>
                     </table>
                 </div>
