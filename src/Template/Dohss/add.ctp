@@ -3,27 +3,27 @@
 use Cake\Core\Configure;
 ?>
 <style>
-/*    label.mandetory:after {
-        content: ' *';
-        color: red;
-        display: inline;
-    }
-    .fileUpload {
-        position: relative;
-        overflow: hidden;
-        margin: 10px;
-    }
-    input.upload {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        font-size: 20px;
-        cursor: pointer;
-        opacity: 0;
-        filter: alpha(opacity=0);
-    }*/
+    /*    label.mandetory:after {
+            content: ' *';
+            color: red;
+            display: inline;
+        }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+        input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }*/
 
 </style>
 <div class="page-bar">
@@ -57,12 +57,12 @@ use Cake\Core\Configure;
 
             </div>
             <div class="portlet-body">
-                <?= $this->Form->create($dohs, ['class' => 'form-horizontal', 'role' => 'form','type'=>'file']) ?>
+                <?= $this->Form->create($dohs, ['class' => 'form-horizontal', 'role' => 'form', 'type' => 'file']) ?>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <?php
-                        echo $this->Form->input('title_en');
-                        echo $this->Form->input('title_bn');
+                        echo $this->Form->input('title_en',['label'=>'Title English']);
+                        echo $this->Form->input('title_bn',['label'=>'Title Bangla']);
                         echo $this->Form->input('total_area');
                         echo $this->Form->input('total_plot_number');
                         echo $this->Form->input('total_building_number');
@@ -70,9 +70,9 @@ use Cake\Core\Configure;
                         echo $this->Form->input('total_apartment_number');
                         echo $this->Form->input('total_market_number');
                         echo $this->Form->input('total_shop_number');
-                        echo $this->Form->input('status', ['options' => Configure::read('status_options')]);
-                        echo $this->Form->input('map_file',['type'=>'file']);
-                       // echo '<div class="col-md-1 col-md-offset-0">';
+                        echo $this->Form->input('status', ['options' => Configure::read('status_options')]).'</br>';
+                        echo $this->Form->input('map_file', ['type' => 'file']);
+                        // echo '<div class="col-md-1 col-md-offset-0">';
 //                        echo $this->Form->input('map_file', [
 //                           // 'templates' => [
 //                             //  'inputContainer' => '<span class="fileUpload btn btn-primary"><span>Upload</span>{{content}}</span>',
@@ -83,15 +83,13 @@ use Cake\Core\Configure;
 //                            'label' => 'Map File',
 //                           
 //                        ]);
-                       // echo '</div>';
-                       
-                      
+                        // echo '</div>';
                         ?>
-                        
+
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn blue pull-right', 'style' => 'margin-top:20px']) ?>
                     </div>
                 </div>
-                <?= $this->Form->end() ?>
+<?= $this->Form->end() ?>
             </div>
         </div>
         <!-- END BORDERED TABLE PORTLET-->
