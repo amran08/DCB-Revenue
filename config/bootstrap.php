@@ -219,6 +219,11 @@ DispatcherFactory::add('ControllerFactory');
  * locale specific date formats. For details see
  * @link http://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
+
+Cake\I18n\Date::setToStringFormat('yyyy-MM-dd');
+Cake\I18n\FrozenDate::setToStringFormat('yyyy-MM-dd');
+
+
 Type::build('time')
     ->useImmutable();
 Type::build('date')
