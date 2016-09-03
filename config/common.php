@@ -69,5 +69,25 @@ return [
         'min_hash_length' => 8,
         'alphabet' => 'abcdefghijklmnopqrstuvwxyz0123456789'
     ],
-    'project_root' => 'cantonment'
+    'project_root' => 'cantonment',
+    'building_type' => [
+        'new' => 'New',
+        'rebuild' => 'Rebuild',
+        'extension' => 'Extension'
+    ],
+    'roof_type' => [
+        'dhalai' => 'Dhalai',
+        'tin-shed' => 'Tin-shed',
+        'other' => 'Other'
+    ],
+    'soil_type' => [
+        'A' => 'A',
+        'B' => 'B',
+        'C' => 'C'
+    ],
+    'date_pciker' => [
+        'CakeDateFormat' => 'Y-M-d',
+        'DatePickerFormat' => 'yyyy/mm/dd',
+        'CakeDateFormatForView' => 'm/d/Y',
+    ]
 ];

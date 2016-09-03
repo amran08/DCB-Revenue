@@ -66,6 +66,7 @@ use Cake\Core\Configure;
         </div>
         <!-- END BORDERED TABLE PORTLET-->
     </div>
+  
 </div>
 <script src="/cantonment/assets/global/plugins/select2/select2.min.js" type="text/javascript"></script>
 <script>
@@ -80,10 +81,9 @@ use Cake\Core\Configure;
             $.getJSON(window.location.origin + "/" + root + "/" + controller + "/" + action + "/" +
                     district_bbs_code
                     , function (upazila_data) {
-
-                       
-                       // $("#upazila-id").select2("val", "");
-                         $("#upazila-id").empty();
+                        // $("#upazila-id").select2("val", "");
+                        $("#upazila-id").empty();
+                        $("#mouja-id").empty();
                         up_name = "";
                         $.each(upazila_data, function (u_index, u_item) {
                             up_name += "<option value='" + u_item.id + "'>" + u_item.name_bd + "</option>";
@@ -100,7 +100,7 @@ use Cake\Core\Configure;
             $.getJSON(window.location.origin + "/" + root + "/" + controller + "/" + action + "/" +
                     upazila_id
                     , function (mouja_data) {
-                        
+
                         //$("#mouja-id").select2("val", "");
                         $("#mouja-id").empty();
                         mj_name = "";

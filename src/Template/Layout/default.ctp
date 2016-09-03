@@ -90,11 +90,11 @@ License: You must have a valid license purchased only from softbd
               rel="stylesheet" type="text/css"/>
         <link href="<?= $this->request->webroot; ?>assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css"
               rel="stylesheet" type="text/css"/>
-        
+
         <link href="<?= $this->request->webroot; ?>assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet"
               type="text/css"/>
-        
-        
+
+
         <script type="text/javascript"
         src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript"
@@ -203,24 +203,24 @@ License: You must have a valid license purchased only from softbd
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                     <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                     <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-<?php
+                    <?php
 //            $left_menu = 'left_menu'.$this->request->session()->read('Auth.User.user_group_id');
 //            echo $this->element('left_menu',[],['cache'=>['config'=>'mcake','key'=>$left_menu]]);
-echo $this->element('left_menu');
-?>
+                    echo $this->element('left_menu');
+                    ?>
                 </div>
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <div class="page-content">
-<?= $this->Flash->render() ?>
-<?= $this->Flash->render('auth') ?>
+                    <?= $this->Flash->render() ?>
+                    <?= $this->Flash->render('auth') ?>
                     <!-- BEGIN PAGE HEAD -->
 
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE CONTENT INNER -->
-<?php echo $this->fetch('content'); ?>
+                    <?php echo $this->fetch('content'); ?>
                     <!-- END PAGE CONTENT INNER -->
                 </div>
             </div>
@@ -257,8 +257,39 @@ echo $this->element('left_menu');
         <script src="<?= $this->request->webroot; ?>assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
         type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
+        <!--date @amra-->
+        <link rel="stylesheet" type="text/css"
+              href="<?= $this->request->webroot; ?>assets/global/plugins/clockface/css/clockface.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="<?= $this->request->webroot; ?>assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="<?= $this->request->webroot; ?>assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
 
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <link rel="stylesheet" type="text/css"
+              href="<?= $this->request->webroot; ?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="<?= $this->request->webroot; ?>assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/clockface/js/clockface.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/clockface/js/clockface.js"></script>
+
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+        <script type="text/javascript"
+        src="<?php echo $this->request->webroot; ?>assets/admin/pages/scripts/components-pickers.js"></script>
+
+        <!--amran-->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->e
         <script src="<?= $this->request->webroot; ?>assets/global/scripts/metronic.js" type="text/javascript"></script>
         <script src="<?= $this->request->webroot; ?>assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
         <script src="<?= $this->request->webroot; ?>assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
