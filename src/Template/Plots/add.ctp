@@ -48,6 +48,7 @@ use Cake\Core\Configure;
                             echo $this->Form->input('plot_number');
                             echo $this->Form->input('road_number');
                             echo $this->Form->input('road_name');
+                            echo $this->Form->input('allotment_date', ['class' => 'datepicker form-control', 'type' => 'text', 'label' => 'Approve Date']);
                             ?>
                         </div>
                         <div class="col-md-6">
@@ -76,6 +77,7 @@ use Cake\Core\Configure;
     <script src="/cantonment/assets/global/plugins/select2/select2.min.js" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
+            $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
             var controller = "Plots";
             var action = "";
             var root = '<?php echo Configure::read('project_root'); ?>';

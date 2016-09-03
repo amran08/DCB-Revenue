@@ -35,33 +35,42 @@ use Cake\Core\Configure;
             <div class="portlet-body">
                 <?= $this->Form->create($plot, ['class' => 'form-horizontal', 'role' => 'form']) ?>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <?php
-                        //  debug($plot);
-                        echo $this->Form->input('district_id', ['options' => $districts, 'id' => 'district-select', 'value' => $plot['district']['district_bbs_code'], 'empty' => __('Select'), 'class' => 'select2me form-control']);
-                        echo $this->Form->input('upazila_id', ['empty' => __('Select'), 'class' => 'select2me form-control']);
-                        echo $this->Form->input('mouja_id', ['class' => 'select2me form-control']);
-                        echo $this->Form->input('dohs_id', ['class' => 'select2me form-control']);
-                        echo $this->Form->input('land_type_id', ['class' => 'select2me form-control']);
-                        echo $this->Form->input('plot_type');
-                        echo $this->Form->input('plot_number');
-                        echo $this->Form->input('road_number');
-                        echo $this->Form->input('road_name');
-                        echo $this->Form->input('total_area');
-                        echo $this->Form->input('area_north');
-                        echo $this->Form->input('area_south');
-                        echo $this->Form->input('area_east');
-                        echo $this->Form->input('area_west');
-                        echo $this->Form->input('is_lease');
-                        echo $this->Form->input('is_blank');
-                        echo $this->Form->input('is_residential');
-                        echo $this->Form->input('details');
-                        //  echo $this->Form->input('allotment_date', array('type' => 'text', 'class' => 'form-control date-picker'));
-                        ?>
-                        <?= $this->Form->button(__('Submit'), ['class' => 'btn blue pull-right', 'style' => 'margin-top:20px']) ?>
+                    <div class="col-md-12">
+
+                        <div class="col-md-6">
+                            <?php
+                            // pr($districts);
+                            //pr($plot);
+                            echo $this->Form->input('district_id', ['options' => $districts, 'value' => $plot['district']['district_bbs_code'], 'empty' => __('Select'), 'id' => 'district-select', 'class' => 'select2me form-control']);
+                            echo $this->Form->input('upazila_id', ['empty' => __('Select'), 'class' => 'select2me form-control']);
+                            echo $this->Form->input('mouja_id', ['empty' => __('Select'), 'class' => 'select2me form-control']);
+                            echo $this->Form->input('dohs_id', ['class' => 'select2me form-control']);
+                            echo $this->Form->input('land_type_id', ['class' => 'select2me form-control']);
+                            echo $this->Form->input('plot_type');
+                            echo $this->Form->input('plot_number');
+                            echo $this->Form->input('road_number');
+                            echo $this->Form->input('road_name');
+                            echo $this->Form->input('allotment_date', ['class' => 'datepicker form-control', 'type' => 'text', 'label' => 'Approve Date']);
+                            ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                            echo $this->Form->input('total_area', ['label' => 'Total Area']);
+                            echo $this->Form->input('area_north', ['label' => 'North']);
+                            echo $this->Form->input('area_south', ['label' => 'South']);
+                            echo $this->Form->input('area_east', ['label' => 'East']);
+                            echo $this->Form->input('area_west', ['label' => 'West']);
+                            echo $this->Form->input('is_lease', ['label' => 'Lease']);
+                            echo $this->Form->input('is_blank', ['label' => 'Blank']);
+                            echo $this->Form->input('is_residential', ['label' => 'Residential']);
+                            echo $this->Form->input('details');
+                            //echo $this->Form->input('allotment_date', array('empty' => true, 'default' => ''));
+                            ?>
+                            <?= $this->Form->button(__('Submit'), ['class' => 'btn blue pull-right', 'style' => 'margin-top:20px']) ?>
+                        </div>
                     </div>
+                    <?= $this->Form->end() ?>
                 </div>
-                <?= $this->Form->end() ?>
             </div>
         </div>
         <!-- END BORDERED TABLE PORTLET-->
@@ -70,6 +79,7 @@ use Cake\Core\Configure;
 
 <script>
     $(document).ready(function () {
+        $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
         var controller = "Plots";
         var action = "upazilaList";
         var action2 = "moujaList";
