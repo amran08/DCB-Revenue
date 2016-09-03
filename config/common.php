@@ -89,5 +89,12 @@ return [
         'CakeDateFormat' => 'Y-M-d',
         'DatePickerFormat' => 'yyyy/mm/dd',
         'CakeDateFormatForView' => 'm/d/Y',
+    ],
+    'house_type' => [
+        'tin_shed' => 'Tin Shed',
+        'paka' => 'Paka',
+        'semi_paka' => 'Semi Paka',
+        'kacha' => 'kacha'
     ]
+    
 ];
