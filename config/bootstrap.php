@@ -194,6 +194,7 @@ Request::addDetector('tablet', function ($request) {
 
 Plugin::load('Migrations');
 
+
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
@@ -202,6 +203,7 @@ if (Configure::read('debug')) {
 //custom plugin for system
 //Plugin::load('Xety/Cake3Upload');
 Plugin::load('Metro');
+
 Plugin::load('Josegonzalez/Upload');
 
 /**
@@ -230,3 +232,5 @@ Type::build('date')
     ->useImmutable();
 Type::build('datetime')
     ->useImmutable();
+
+Plugin::load('Search');

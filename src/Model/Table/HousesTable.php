@@ -32,6 +32,11 @@ class HousesTable extends Table
             'foreignKey' => 'building_id',
             'joinType' => 'INNER'
         ]);
+
+        $this->hasMany('Owners', [
+            'foreignKey' => 'property_id',
+            'conditions' => ['property_type_table_name' =>'Houses']
+        ]);
     }
 
     /**
@@ -45,36 +50,36 @@ class HousesTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
+
         $validator
             ->requirePresence('house_type', 'create')
             ->notEmpty('house_type');
-            
+
         $validator
-            ->requirePresence('house_number', 'create')
+            // ->requirePresence('house_number', 'create')
             ->notEmpty('house_number');
-            
+
         $validator
             ->requirePresence('house_title', 'create')
             ->notEmpty('house_title');
-            
+
         $validator
-            ->add('floor_number', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('floor_number', 'create')
-            ->notEmpty('floor_number');
-            
+            // ->add('floor_number', 'valid', ['rule' => 'numeric'])
+            //->requirePresence('floor_number', 'create')
+            ->allowEmpty('floor_number');
+
         $validator
-            ->add('total_area', 'valid', ['rule' => 'numeric'])
+            //   ->add('total_area', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('total_area');
-            
+
         $validator
             ->add('is_commercial', 'valid', ['rule' => 'boolean'])
             ->allowEmpty('is_commercial');
-            
+
         $validator
             ->add('status', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('status');
-            
+
         $validator
             ->allowEmpty('details');
 

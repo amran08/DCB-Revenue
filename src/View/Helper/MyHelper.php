@@ -59,7 +59,7 @@ class MyHelper extends Helper
                     ?>
                     <li class="<?= $a_class; ?>" >
                         <a href="<?= Router::url(['controller' => $task['controller'], 'action' => $task['method']]) ; ?>">
-                            <i class="<?= $task['icon'] ?>"></i> <?= $task['name_en'] ?>
+                            <i class="<?= $task['icon'] ?>"></i> <?= $task['name_bn'] ?>
                         </a>
                     </li>
                     <?php
@@ -69,7 +69,7 @@ class MyHelper extends Helper
                     ?>
                     <li>
                         <a href="javascript:;">
-                            <i class="<?= $task['icon'] ?>"></i> <?= $task['name_en'] ?> <span class="arrow"></span>
+                            <i class="<?= $task['icon'] ?>"></i> <?= $task['name_bn'] ?> <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
                             <?php

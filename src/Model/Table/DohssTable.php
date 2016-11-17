@@ -11,7 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Dohss Model
  */
-class DohssTable extends Table {
+class DohssTable extends Table
+{
 
     /**
      * Initialize method
@@ -19,10 +20,12 @@ class DohssTable extends Table {
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config) {
+    public function initialize(array $config)
+    {
         $this->table('dohss');
-        $this->displayField('title_en');
+        $this->displayField('title_bn');
         $this->primaryKey('id');
+
         $this->hasMany('Apartments', [
             'foreignKey' => 'dohs_id'
         ]);
@@ -38,6 +41,9 @@ class DohssTable extends Table {
         $this->hasMany('TaxAssessments', [
             'foreignKey' => 'dohs_id'
         ]);
+        $this->hasMany('DohsMaps', [
+            'foreignKey' => 'dohs_id'
+        ]);
     }
 
     /**
@@ -46,65 +52,64 @@ class DohssTable extends Table {
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator) {
-        
-        
-        $validator
-                ->add('id', 'valid', ['rule' => 'numeric'])
-                ->allowEmpty('id', 'create');
+    public function validationDefault(Validator $validator)
+    {
 
         $validator
-                ->requirePresence('title_en', 'create')
-                ->notEmpty('title_en');
+            ->add('id', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('id', 'create');
 
         $validator
-                ->requirePresence('title_bn', 'create')
-                ->notEmpty('title_bn');
+            ->requirePresence('title_en', 'create')
+            ->notEmpty('title_en');
 
         $validator
-                ->add('total_area', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_area', 'create')
-                ->notEmpty('total_area');
+            ->requirePresence('title_bn', 'create')
+            ->notEmpty('title_bn');
 
         $validator
-                ->add('total_plot_number', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_plot_number', 'create')
-                ->notEmpty('total_plot_number');
+            // ->add('total_area', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('total_area', 'create')
+            ->notEmpty('total_area');
 
         $validator
-                ->add('total_building_number', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_building_number', 'create')
-                ->notEmpty('total_building_number');
+            // ->add('total_plot_number', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('total_plot_number', 'create')
+            ->notEmpty('total_plot_number');
 
         $validator
-                ->add('total_house_number', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_house_number', 'create')
-                ->notEmpty('total_house_number');
+            //  ->add('total_building_number', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('total_building_number', 'create')
+            ->notEmpty('total_building_number');
 
         $validator
-                ->add('total_apartment_number', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_apartment_number', 'create')
-                ->notEmpty('total_apartment_number');
+            ->requirePresence('total_house_number', 'create')
+            ->notEmpty('total_house_number');
 
         $validator
-                ->add('total_market_number', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_market_number', 'create')
-                ->notEmpty('total_market_number');
+            //  ->add('total_apartment_number', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('total_apartment_number', 'create')
+            ->notEmpty('total_apartment_number');
 
         $validator
-                ->add('total_shop_number', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('total_shop_number', 'create')
-                ->notEmpty('total_shop_number');
+            //    ->add('total_market_number', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('total_market_number', 'create')
+            ->notEmpty('total_market_number');
 
         $validator
-                ->add('status', 'valid', ['rule' => 'numeric'])
-                ->requirePresence('status', 'create')
-                ->notEmpty('status');
+            // ->add('total_shop_number', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('total_shop_number', 'create')
+            ->notEmpty('total_shop_number');
+
+        $validator
+            ->add('status', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('status', 'create')
+            ->notEmpty('status');
 
 
         $validator
-                ->requirePresence('map_file', 'create')
-                ->notEmpty('map_file');
+           // ->requirePresence('map_file', 'create')
+            ->allowEmpty('map_file');
 
         return $validator;
     }

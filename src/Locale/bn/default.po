@@ -1,0 +1,784 @@
+...
+
+plots::
+
+msgid "Sl. No."
+msgstr "ক্রমিক নং"
+
+msgid "Plot Number"
+msgstr "প্লট নাম্বার"
+
+msgid "Plot info"
+msgstr "প্লটের তথ্য"
+
+msgid "Plot's Condition"
+msgstr "বর্তমান অবস্থা"
+
+msgid "Road Number"
+msgstr "রোড নাম্বার"
+
+msgid "Road Name"
+msgstr "রোডের নাম"
+
+msgid "Dohs"
+msgstr "ডিওএইচএস"
+
+msgid "Land Type"
+msgstr "ভুমির ধরন"
+
+msgid "Lease/Blank/Residential"
+msgstr "লিজ /খালি/আবাসিক"
+
+msgid "Residential"
+msgstr "আবাসিক"
+
+msgid "Lease"
+msgstr "লিজ"
+
+msgid "Blank"
+msgstr "খালি"
+
+msgid "Is Residential"
+msgstr "আবাসিক"
+
+msgid "Is Lease"
+msgstr "লিজ"
+
+msgid "Is Blank"
+msgstr "খালি"
+
+msgid "Mouja"
+msgstr "মৌজা"
+
+
+msgid "Upazila"
+msgstr "উপজেলা"
+
+msgid "District"
+msgstr "জেলা"
+
+msgid "Area North"
+msgstr "উত্তর"
+
+msgid "Area South"
+msgstr "দক্ষিণ"
+
+msgid "Area East"
+msgstr "পূর্ব"
+
+msgid "Area West"
+msgstr "পশ্চিম"
+
+msgid "Total Area"
+msgstr "মোট এরিয়া"
+
+msgid "Allotment Date"
+msgstr "ইজারা অনুমোদনের তারিখ"
+
+msgid "Actions"
+msgstr "পদক্ষেপ"
+
+msgid "Status"
+msgstr "বর্তমান অবস্থা"
+
+msgid "Status"
+msgstr "সক্রিয়"
+
+msgid "Active"
+msgstr "হ্যাঁ"
+
+msgid "Yes"
+msgstr "হ্যাঁ"
+	
+msgid "No"
+msgstr "না"
+
+msgid "In-Active"
+msgstr "না"
+
+msgid "Plots"
+msgstr "প্লট"
+
+
+owners:: 
+
+msgid "Name"
+msgstr "নাম"
+
+msgid "Owner"
+msgstr "মালিক"
+
+msgid "Ownership Type"
+msgstr "মালিকের ধরন"
+
+msgid "Owner Type"
+msgstr "মালিকানার ধরন"
+
+msgid "Property Type"
+msgstr "সম্পত্তির ধরন"
+
+msgid "NID"
+msgstr "জাতীয়  পরিচয়প্ত্র নাম্বার"
+
+msgid "Religion"
+msgstr "ধর্ম"
+
+msgid "Gender"
+msgstr "লিঙ্গ"
+
+msgid "Mobile"
+msgstr "মোবাইল"
+
+msgid "Mobile Number"
+msgstr "মোবাইল"
+
+msgid "Usage Type"
+msgstr "ব্যাবহারের ধরন"
+
+msgid "Name (English)"
+msgstr "নাম(ইংরেজী)"
+
+msgid "Name (Bangla)"
+msgstr "নাম(বাংলা)"
+
+msgid "Father Name (English)"
+msgstr "পিতার নাম(ইংরেজী)"
+msgid "Father Name (Bangla)"
+msgstr "পিতার নাম(বাংলা)"
+msgid "Mother Name (Bangla)"
+msgstr "মাতার নাম(বাংলা)"
+msgid "Mother Name (English)"
+msgstr "মাতার নাম(ইংরেজী)"
+
+msgid "Spouse Name (Bangla)"
+msgstr "স্বামী /স্ত্রীর নাম (বাংলা)"
+
+msgid "Spouse Name (English)"
+msgstr "স্বামী /স্ত্রীর নাম (ইংরেজী)"
+
+msgid "Phone Number"
+msgstr "ফোন"
+
+msgid "Present Address"
+msgstr "বর্তমান ঠিকানা "
+
+msgid "Permanent Address"
+msgstr "স্থায়ী ঠিকানা "
+
+msgid "Own Percentage"
+msgstr "মালিকানার পরিমাণ(শতাংশ)"
+
+
+msgid "Date of Birth"
+msgstr "জন্ম তারিখ"
+
+msgid "Own Date"
+msgstr "ইজারা শুরুর তারিখ"
+
+msgid "Email"
+msgstr "ইমেইল"
+
+msgid "Lease Expire Date"
+msgstr "ইজারা শেষের তারিখ"
+
+
+msgid "Owner's Percentage"
+msgstr "মালিকানার পরিমাণ  %"
+
+msgid "Apartment Owned"
+msgstr "সর্বমোট এপার্টমেন্টের মালিকানা"
+
+
+msgid "Issue Date"
+msgstr "ইজারা  শুরুর তারিখ"
+
+msgid "Expire Date"
+msgstr "মেয়াদোত্তীর্ণ  তারিখ"
+
+dohss::
+
+msgid "Title English"
+msgstr "ডিওএইচএস নাম(ইংরেজী)"
+
+
+msgid "Title Bangla"
+msgstr "ডিওএইচএস নাম(বাংলা)"
+
+msgid "Total Plots"
+msgstr "সর্বমোট  প্লট "
+
+msgid "Total Buildings"
+msgstr "সর্বমোট বিল্ডিং"
+
+msgid "Total Apartments"
+msgstr "সর্বমোট এপার্টমেন্ট"
+
+msgid "Total Houses"
+msgstr "সর্বমোট হাউজ"
+
+msgid "Total Markets"
+msgstr "সর্বমোট মার্কেট"
+
+msgid "Total Shops"
+msgstr "সর্বমোট দোকান"
+
+msgid "Total Floors"
+msgstr "সর্বমোট  ফ্লোর"
+
+msgid "Map File"
+msgstr "ম্যাপ"
+
+
+msgid "Add New Dohs"
+msgstr "নতুন ডিওএইচএস"
+
+msgid "Submit"
+msgstr "সংরক্ষণ"
+
+
+buildings::
+
+
+
+msgid "Current Plots"
+msgstr "সংযুক্ত প্লট সমুহ"
+
+msgid "Add Plots"
+msgstr "নতুন প্লট সংযুক্ত করুন"
+
+msgid "Included plot"
+msgstr "সংযুক্ত "
+
+msgid "Apartment/House"
+msgstr "এপার্টমেন্ট/হাঊজ"
+
+msgid "Build Type"
+msgstr "নির্মাণ ধরন"
+
+msgid "Roof Type"
+msgstr "ছাদের ধরন"
+
+msgid "Build Purpose"
+msgstr "ভবনের ধরন"
+
+msgid "Approve Date"
+msgstr "অনুমোদনের তারিখ"
+
+msgid "Start Date"
+msgstr "নির্মাণ শুরুর তারিখ"
+
+msgid "Finish Date"
+msgstr "নির্মাণ শেষের তারিখ"
+
+msgid "Garage Available"
+msgstr "গ্যারাজ "
+
+msgid "Legal Info Available"
+msgstr "লিগ্যাল ইনফো"
+
+msgid "Septic Tank Info Available"
+msgstr "সেপটিক ট্যাংক " 
+
+msgid "Building Title (English)"
+msgstr "ভবনের নাম( ইংরেজী)"
+
+msgid "Building Title (Bangla)"
+msgstr "ভবনের নাম( বাংলা)"
+
+msgid "Developer"
+msgstr "নির্মাণকারী প্রতিষ্ঠান"
+
+msgid "Developer Details"
+msgstr "নির্মাণকারী প্রতিষ্ঠানের তথ্য"
+
+msgid "1"
+msgstr "১"
+msgid "2"
+msgstr "২"
+msgid "3"
+msgstr "৩"
+
+
+msgid "Building's Plot  Info"
+msgstr "ভবনের প্লটের সংযুক্তি"
+
+msgid "Add New Plot"
+msgstr "নতুন প্লট সংযোজন"
+
+msgid "Add More Plots"
+msgstr "ভবনের আরো প্লটের সংযুক্তি"
+
+
+msgid "Building's Basic"
+msgstr "ভবনের তথ্য"
+
+
+msgid "Plot Number {1}"
+msgstr "প্লট নাম্বার 1"
+
+
+msgid "Apartment / House info"
+msgstr "এপার্টমেন্ট/হাউজের তথ্য"
+
+msgid "Apartment"
+msgstr "এপার্টমেন্ট"
+
+msgid "House"
+msgstr "হাউজ"
+
+msgid "Houses"
+msgstr "হাউজ"
+
+apartments ::
+
+msgid "Apartment Type"
+msgstr "এপার্টমেন্টের ধরন"
+
+msgid "Apartment Number"
+msgstr "এপার্টমেন্ট  নাম্বার"
+
+msgid "Floor Number"
+msgstr "ফ্লোর  নাম্বার"
+
+msgid "Monthly Rent"
+msgstr "মাসিক ভাড়া"
+
+msgid "Floor Position"
+msgstr "ফ্লোর পজিশন"
+
+
+msgid "Assign Owners"
+msgstr "এপার্টমেন্টের মালিকানা "
+
+msgid "Add More Apartments"
+msgstr "নতুন এপার্টমেন্ট "
+
+msgid "Remove Apartment"
+msgstr "বাতিল এপার্টমেন্ট "
+
+msgid "Remove Owner"
+msgstr "বাতিল মালিক "
+
+msgid "Add More Owners"
+msgstr "নতুন মালিক যোগ করুন"
+
+msgid "Building Owner"
+msgstr "ভবনের মালিক"
+
+msgid "Back to apartments"
+msgstr "এপার্টমেন্টে ফিরে যান"
+
+house ::
+
+msgid "House Type"
+msgstr "হাউজের ধরন"
+
+msgid "House Owner"
+msgstr "হাউজ মালিক"
+msgid "Building"
+msgstr "ভবন"
+
+msgid "House Number"
+msgstr "হাউজ  নাম্বার"
+
+msgid "House Title"
+msgstr "হাউজ টাইটেল"
+
+msgid "House Details"
+msgstr "হাউজের তথ্য"
+
+msgid "Commercial"
+msgstr "বাণিজ্যিক"
+
+msgid "Estimate Cost"
+msgstr "আনুমানিক নির্মাণ ব্যয়"
+
+msgid "Actual Cost"
+msgstr "নির্মাণ ব্যয়"
+
+msgid "Soil Type"
+msgstr "মাটির  ধরন"
+
+msgid "Building's Location and Cost Info"
+msgstr "ভবনের  ভুমির পরিমাপ  এবং  নির্মাণ ব্যয়"
+
+msgid "Building List"
+msgstr "ভবনের  তালিকা"
+
+msgid "House List"
+msgstr "হাউজের  তালিকা"
+
+msgid "New House"
+msgstr "নতুন হাউজ"
+
+msgid "New Plot"
+msgstr "নতুন প্লট"
+
+msgid "New Dohs"
+msgstr "নতুন ডিওএইচএস"
+
+msgid "Plot List"
+msgstr "প্লট  তালিকা"
+
+msgid "Owner List"
+msgstr "মালিকদের  তালিকা"
+
+msgid "New Owner"
+msgstr "নতুন মালিক"
+
+msgid "Add New Building"
+msgstr "নতুন ভবন "
+
+msgid "New Building"
+msgstr "নতুন ভবন "
+
+msgid "Edit Building"
+msgstr "ভবনের তথ্য সংশোধন"
+
+msgid "Edit Plot"
+msgstr "প্লটের তথ্য সংশোধন"
+
+msgid "Edit Dohs"
+msgstr "ডিওএইচএস তথ্য সংশোধন"
+
+msgid "Dohs List"
+msgstr "ডিওএইচএস তালিকা"
+
+
+msgid "Back"
+msgstr "ফেরত যান"
+
+msgid "Prev"
+msgstr "পূর্বে"
+
+msgid "Next"
+msgstr "নেক্সট"
+
+market ::
+
+msgid "Market"
+msgstr "মার্কেট " 
+
+msgid "Markets"
+msgstr "মার্কেট " 
+
+msgid "Dohss"
+msgstr "ডিওএইচএস " 
+
+msgid "Market Title (English)"
+msgstr "মার্কেট (ইংরেজী)" 
+
+msgid "Market Inaugurated"
+msgstr "মার্কেটের কার্যক্রম শুরু"  
+msgid "Market Title (Bangla)"
+msgstr "মার্কেট (বাংলা)" 
+
+msgid "Add New Building"
+msgstr "নতুন ভবনের তথ্য "
+
+msgid "Address"
+msgstr "ঠিকানা "
+
+msgid "New Market"
+msgstr "নতুন মার্কেট "
+
+msgid "Add New Market"
+msgstr "নতুন মার্কেট "  
+
+msgid "Add More Shops"
+msgstr "নতুন  দোকান সংযোজন "  
+
+msgid "Back to Shops"
+msgstr "দোকানের তথ্যে ফিরে যান "  
+
+msgid "Assign Shop Owner"
+msgstr "দোকানের মালিকানা "
+
+msgid "Market List"
+msgstr "মার্কেট  তালিকা"
+
+msgid "Shop Info"
+msgstr "দোকানের তথ্য"
+
+msgid "Shop Title (English)"
+msgstr "দোকানের নাম(ইংরেজী)"
+
+msgid "Shop Title (Bangla)"
+msgstr "দোকানের নাম(বাংলা)"
+
+msgid "Lease Amount"
+msgstr "সালামী/ লিজ এমাউন্ট"
+
+msgid "Shop Number"
+msgstr "দোকান নাম্বার "
+
+msgid "New Shop"
+msgstr "নতুন  দোকান"
+
+msgid "Shop List"
+msgstr "দোকানের তালিকা "
+
+msgid "Shop Type"
+msgstr "দোকানের ধরন"
+
+msgid "Current Condition"
+msgstr "দোকানের বর্তমান অবস্থা"
+
+msgid "Shop Holder Info"
+msgstr "দোকান ব্যবহারকারীর তথ্য"
+
+msgid "Shops"
+msgstr "দোকান সমুহ"
+
+msgid "Shop"
+msgstr "দোকান"
+
+msgid "Edit Shop"
+msgstr "দোকানের তথ্য সংশোধন"
+
+msgid "Edit Shop"
+msgstr "দোকানের তথ্য সংশোধন"
+
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+msgid "Remove Shop"
+msgstr "বাতিল দোকান"
+
+msgid "Add New Shop Allotment Info"
+msgstr "নতুন দোকান ভাড়ার তথ্য"
+
+msgid "New Shop Allotment Info"
+msgstr "নতুন দোকান ভাড়ার তথ্য"
+
+msgid "Edit Shop Allotment Info"
+msgstr "দোকান ভাড়ার তথ্য সংশোধন"
+
+msgid "Shop Allotment Info List"
+msgstr "দোকান ভাড়ার তথ্যসমূহ"
+
+
+msgid "Shop Allotment Infos"
+msgstr "দোকান ভাড়ার তথ্য"
+
+msgid "Report Dohs"
+msgstr "ডিওএইচএস রিপোর্ট"
+
+details pages ::
+
+msgid "Shop Details"
+msgstr "দোকানের তথ্য"
+
+msgid "Market Details"
+msgstr "মার্কেটের তথ্য"
+
+msgid "Apartment Details"
+msgstr "এপার্টমেন্টের তথ্য"
+
+msgid "Owner Details"
+msgstr "মালিকের তথ্য"
+
+
+msgid "Owners"
+msgstr "প্রপার্টি মালিকগণ"
+
+msgid "Edit Owner"
+msgstr "মালিকের তথ্য সংশোধন"
+
+msgid "Plot Details"
+msgstr "প্লটের তথ্য"
+
+msgid "Building Details"
+msgstr "ভবনের  তথ্য"
+
+msgid "Buildings"
+msgstr "ভবন সমূহ"
+
+msgid "Dohs Details"
+msgstr "ডিওএইচএস এর  তথ্য"
+
+
+msgid "Property Type Table Name"
+msgstr "প্রপার্টির ধরন"
+
+msgid "Shop Allotment Info Details"
+msgstr "দোকান ভাড়ার তথ্য"
+
+msgid "Edit Developer"
+msgstr "নির্মাণকারী প্রতিষ্ঠানের তথ্য সংশোধন"
+
+msgid "Developer List"
+msgstr "নির্মাণকারী প্রতিষ্ঠান তালিকা"
+
+msgid "New Developer"
+msgstr "নতুন নির্মাণকারী প্রতিষ্ঠান"
+
+msgid "Details"
+msgstr "বিস্তারিত"
+
+view pages ::
+
+
+msgid "View Owner"
+msgstr "মালিকের তথ্য"
+
+msgid "View Dohs"
+msgstr "ডিওএইচএস  এর তথ্য"
+
+msgid "View Plot"
+msgstr "প্লটের তথ্য"
+
+msgid "View Market"
+msgstr "মার্কেটের তথ্য"
+
+msgid "View Shop"
+msgstr "দোকানের তথ্য"
+
+msgid "View Shop Allotment Info"
+msgstr "দোকান ভাড়ার তথ্য"
+
+msgid "View Building"
+msgstr "ভবনের তথ্য"
+
+msgid "View House"
+msgstr "হাউজের তথ্য"
+
+
+
+msgid "View Apartment"
+msgstr "এপার্টমেন্টের তথ্য"
+
+msgid "Apartment List"
+msgstr "এপার্টমেন্ট তালিকা"
+
+msgid "New Apartment"
+msgstr "নতুন এপার্টমেন্ট"
+
+msgid "Apartments"
+msgstr "এপার্টমেন্ট"
+
+
+msgid "View"
+msgstr "দেখুন"
+
+
+msgid "Edit"
+msgstr "সম্পাদনা"
+
+msgid "Dohs's Map Files"
+msgstr "ম্যাপ সমূহ"
+
+msgid "Add Files"
+msgstr "নতুন ফাইল"
+
+msgid "Delete"
+msgstr "মুছে ফেলুন"
+
+
+msgid "ShowReport"
+msgstr "রিপোর্ট দেখুন"
+
+msgid "Property"
+msgstr "প্রপার্টি"
+
+
+msgid "Build Status"
+msgstr "ভবনের বর্তমান অবস্থা"
+
+msgid "Last Mutation Date"
+msgstr "সর্বশেষ নামজারির তারিখ"
+
+msgid "Plot Owner"
+msgstr "প্লটের মালিক"
+
+msgid "Plot Owner Info"
+msgstr "প্লটের মালিকের তথ্য"
+
+msgid "Plot Has Owner"
+msgstr "প্লটের মালিকের তথ্য সংযোজন"
+
+msgid "Add Apartment/House Information"
+msgstr "এপার্টমেন্ট/হাঊজ  তথ্য সংযোজন"
+
+msgid "None"
+msgstr "প্রযোজ্য নয়"
+
+
+msgid "Edit Property Information"
+msgstr "সম্পত্তির তথ্য  সংশোধন"
+
+msgid "Filter"
+msgstr "খোঁজ করুন"
+
+msgid "Reset"
+msgstr "রিসেট"
+
+msgid "Please Fill Apartments Information and Assign Owners"
+msgstr "এপার্টমেন্টের  তথ্য এবং মালিক ঠিক করুন"
+
+
+msgid "Please Fill House Information"
+msgstr "হাউজের তথ্য সম্পূর্ণ করুন"
+
+msgid "Please Fill Plot's Information"
+msgstr "প্লটের তথ্য সম্পূর্ণ করুন"
+
+msgid "Please Fill Building's Information"
+msgstr "ভবনের তথ্য সম্পূর্ণ করুন"
+
+msgid "Please Select Plot Number"
+msgstr "প্লট নির্বাচন করুন"
+
+msgid "PrintPdf"
+msgstr "পিডিএফ প্রিন্ট"
+
+msgid  "Duration In Month"
+msstr  "ট্যাক্স আদায়ের সময়কাল"
+
+msgid  "Percentage Imposed"
+msgstr "আরোপকৃত হার"
+
+msgid  "Tax Rate"
+msgstr "ট্যাক্স আরোপের হার"
+
+msgid  "Economic Year"
+msgstr "অর্থবছর"
+
+msgid  "Tax Collection Location"
+msgstr "ট্যাক্স আদ্যায়ের এলাকা"
+
+msgid  "new"
+msgstr "নতুন"
+
+msgid  "revised"
+msgstr "সংশোধিত"
+
+msgid  "taxAssessmentButton"
+msgstr  "ট্যাক্স এসেসম্যান্ট"
+
+msgid "Late Fee"
+msgstr "দেরীর কারণে জরিমানা"
+	
+msgid "Rebet"
+msgstr "রিবেট"
+
+msgid "Fine"
+msgstr "জরিমানা"
+
+msgid "Collection Amount"
+msgstr "আদায়কৃত পরিমাণ"
+
+msgid "Collection Date"
+msgstr "আদায়ের তারিখ"
+
+msgid "Total Amount"
+msgstr "সর্বমোট পরিমাণ"
+
+msgid "Assessed Amount"
+msgstr "আরোপিত করের পরিমাণ"
+
+msgid "Base"
+msgstr "আসল করের পরিমাণ"
+
+msgid "Previously Collected Amount"
+msgstr "পূর্বে  আদায়কৃত"

@@ -7,6 +7,10 @@ use Cake\ORM\Entity;
  * Dohs Entity.
  *
  * @property int $id
+ * @property int $district_id
+ * @property \App\Model\Entity\District $district
+ * @property int $upazila_id
+ * @property \App\Model\Entity\Upazila $upazila
  * @property string $title_en
  * @property string $title_bn
  * @property float $total_area
@@ -16,7 +20,7 @@ use Cake\ORM\Entity;
  * @property int $total_apartment_number
  * @property int $total_market_number
  * @property int $total_shop_number
- * @property bool $status
+ * @property int $status
  * @property string $map_file
  * @property \Cake\I18n\Time $create_time
  * @property \Cake\I18n\Time $update_time

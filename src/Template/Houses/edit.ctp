@@ -1,7 +1,25 @@
 <?php
 
 use Cake\Core\Configure;
+
 ?>
+<style xmlns="http://www.w3.org/1999/html">
+    .required label:after {
+        color: #ff0000;
+        content: " *";
+        font-size: 16px;
+        position: relative;
+        top: 9px;
+    }
+
+    .tabs-wrap {
+        margin-top: 40px;
+    }
+
+    .tab-content .tab-pane {
+        padding: 20px 0;
+    }
+</style>
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -37,18 +55,25 @@ use Cake\Core\Configure;
 
                         <div class="col-md-6">
                             <?php
-                            echo $this->Form->input('dohs_id', ['options' => $dohss, 'class' => 'select2me form-control', 'empty' => __('Select')]);
-                            echo $this->Form->input('building_id', ['class' => 'select2me form-control', 'options' => $buildings, 'empty' => __('Select')]);
+                            echo $this->Form->input('dohs_id', ['options' => $dohss, 'required' => true, 'class' => 'select2me form-control', 'empty' => __('Select')]);
+                            echo $this->Form->input('building_id', ['class' => 'select2me form-control', 'required' => true, 'empty' => __('Select')]);
                             echo $this->Form->input('house_type', ['class' => 'select2me form-control', 'options' => Configure::read('house_type')]);
-                            echo $this->Form->input('house_number');
-                            echo $this->Form->input('house_title');
+                            echo $this->Form->input('house_number', ['type' => 'text']);
+                            echo $this->Form->input('house_title', ['required' => true]);
                             ?>
                         </div>
                         <div class="col-md-6">
                             <?php
-                            echo $this->Form->input('floor_number');
-                            echo $this->Form->input('total_area');
-                            echo $this->Form->input('is_commercial', ['label' => 'Commercial']);
+                            echo $this->Form->input('floor_number',['class'=>'form-control integer-validation','type'=>'text']);
+                            echo $this->Form->input('total_area',['class'=>'form-control any-number-validation','type'=>'text','required'=>true]);?>
+                            <div class="col-md-3"><label><?php echo __('Commercial') ?></label></div>
+                            <?php
+                            $options = array('1' => __('Yes'), '0' => __('No'));
+                            $attributes = array('legend' => false, 'value' => $house['is_commercial']);
+                            echo $this->Form->radio('is_commercial', $options, $attributes);
+                            ?>
+                            </br></br>
+                            <?php
                             echo $this->Form->input('status', ['options' => Configure::read('status_options')]);
                             echo $this->Form->input('details');
                             ?>
@@ -68,43 +93,50 @@ use Cake\Core\Configure;
             $("#dohs_id").select2();
             $("#dohs-id").on('change', function () {
                 var dohs_id = $(this).val();
-
+                $("#building-id").empty();
                 console.log(dohs_id);
-                if (dohs_id == "" || dohs_id == undefined)
-                {
+                if (dohs_id == "" || dohs_id == undefined) {
                     $("#building-id").empty();
-                    return alert("Invalid Dohs");
+                    return $("body").overhang({
+                        type: "error",
+                        message: cantonment_translation.invalid_dohs_selected,
+                        duration: duration_of_error_msg
+                    });
                 }
                 $.getJSON('<?php
-                    echo $this->Url->build([
-                        "controller" => "Houses",
-                        "action" => "buildingList",
-                    ]);
-                    ?>' + "/" + dohs_id
-                        , function (building_data) {
+                        echo $this->Url->build([
+                            "controller" => "Houses",
+                            "action" => "buildingList",
+                        ]);
+                        ?>' + "/" + dohs_id
+                    , function (building_data) {
 
-                            //$("#-id").select2("val", "");
-                            if (building_data.length > 0)
-                            {
-                                $("#building-id").empty();
-                                building_list = "";
-                                $.each(building_data, function (u_index, u_item) {
-                                    //console.log(u_item)
-                                    building_list += "<option value='" + u_item.id + "'>" + u_item.title_en + "</option>";
-                                });
-                                $("#building-id").append(building_list);
-                            }
-                            else {
-                                $("#building-id").empty();
-                                return alert("Invalid Dohs");
+                        //$("#-id").select2("val", "");
+                        if (building_data.length > 0) {
+                            $("#building-id").empty();
+                            building_list = "";
+                            $.each(building_data, function (u_index, u_item) {
+                                //console.log(u_item)
+                                building_list += "<option value='" + u_item.id + "'>" + u_item.title_en + "</option>";
+                            });
+                            $("#building-id").append(building_list);
+                        }
+                        else {
+                            $("#building-id").empty();
+                            return $("body").overhang({
+                                type: "error",
+                                message: cantonment_translation.no_building_found_for_this_dohs,
+                                duration: duration_of_error_msg
+                            });
 
-                            }
+                        }
 
 
-                        });
+                    });
             });
 
 
         });
 
     </script>
+  

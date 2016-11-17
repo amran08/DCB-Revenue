@@ -17,10 +17,21 @@ class DohssControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.dohss',
+        'app.districts',
+        'app.plots',
+        'app.upazilas',
+        'app.dglr_area_table',
+        'app.rs_moujas',
+        'app.users',
+        'app.land_type',
+        'app.lts',
+        'app.holding_numbers',
         'app.apartments',
         'app.buildings',
+        'app.developers',
+        'app.building_files',
+        'app.building_plot_info',
         'app.houses',
-        'app.plots',
         'app.tax_assessments'
     ];
 

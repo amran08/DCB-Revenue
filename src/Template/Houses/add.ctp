@@ -2,6 +2,24 @@
 
 use Cake\Core\Configure;
 ?>
+
+<style xmlns="http://www.w3.org/1999/html">
+    .required label:after {
+        color: #ff0000;
+        content: " *";
+        font-size: 16px;
+        position: relative;
+        top: 9px;
+    }
+
+    .tabs-wrap {
+        margin-top: 40px;
+    }
+
+    .tab-content .tab-pane {
+        padding: 20px 0;
+    }
+</style>
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -37,18 +55,31 @@ use Cake\Core\Configure;
 
                         <div class="col-md-6">
                             <?php
-                            echo $this->Form->input('dohs_id', ['options' => $dohss, 'class' => 'select2me form-control', 'empty' => __('Select')]);
-                            echo $this->Form->input('building_id', ['class' => 'select2me form-control', 'empty' => __('Select')]);
+                          // echo $this->Form->input('district_id', ['options' => $districts, 'class' => 'select2me form-control', 'empty' => __('Select')]);
+                            //echo $this->Form->input('upazila_id', ['class' => 'select2me form-control', 'empty' => __('Select')]);
+                            echo $this->Form->input('dohs_id', ['options' => $dohss,'required'=>true,'class' => 'select2me form-control', 'empty' => __('Select')]);
+                            echo $this->Form->input('building_id', ['class' => 'select2me form-control','required'=>true ,'empty' => __('Select')]);
                             echo $this->Form->input('house_type', ['class' => 'select2me form-control', 'options' => Configure::read('house_type')]);
-                            echo $this->Form->input('house_number');
-                            echo $this->Form->input('house_title');
+                            echo $this->Form->input('house_number',['type'=>'text']);
+                            echo $this->Form->input('house_title',['required'=>true]);
                             ?>
                         </div>
                         <div class="col-md-6">
                             <?php
-                            echo $this->Form->input('floor_number');
-                            echo $this->Form->input('total_area');
-                            echo $this->Form->input('is_commercial', ['label' => 'Commercial']);
+                            echo $this->Form->input('floor_number',['class'=>'form-control integer-validation','type'=>'text']);
+                            echo $this->Form->input('total_area',['class'=>'form-control any-number-validation','type'=>'text','required'=>true]);
+                            ?>
+                            <div class="col-md-3"><label>Commercial</label></div>
+                            <?php
+                            echo $this->Form->radio(
+                                'is_commercial', [
+                                    ['value' => 1, 'text' => 'Yes', 'style' => 'color:red;'],
+                                    ['value' => 0, 'text' => 'No', 'style' => 'color:blue;'],
+                                ]
+                            );
+                            ?></br></br>
+                            <?php
+
                             echo $this->Form->input('status', ['options' => Configure::read('status_options')]);
                             echo $this->Form->input('details');
                             ?>
@@ -73,7 +104,11 @@ use Cake\Core\Configure;
                 if (dohs_id == "" || dohs_id == undefined)
                 {
                     $("#building-id").empty();
-                    return alert("Invalid Dohs");
+                    return $("body").overhang({
+                        type: "error",
+                        message: cantonment_translation.invalid_dohs_selected,
+                        duration: duration_of_error_msg
+                    });
                 }
                 $.getJSON('<?php
                     echo $this->Url->build([
@@ -96,7 +131,11 @@ use Cake\Core\Configure;
                             }
                             else {
                                 $("#building-id").empty();
-                                return alert("Invalid Dohs");
+                                return $("body").overhang({
+                                    type: "error",
+                                    message: cantonment_translation.no_building_found_for_this_dohs,
+                                    duration: duration_of_error_msg
+                                });
 
                             }
 
@@ -108,3 +147,4 @@ use Cake\Core\Configure;
         });
 
     </script>
+  

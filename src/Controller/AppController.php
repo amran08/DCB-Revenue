@@ -45,9 +45,11 @@ class AppController extends Controller
     {
         parent::initialize();
 
+        $this->loadComponent('FileUpload');
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Common');
+
 
         $this->loadComponent('Auth', [
             'authorize' => ['Controller'],
@@ -63,21 +65,22 @@ class AppController extends Controller
                 'controller' => 'Dashboard',
                 'action' => 'login'
             ],
-            'loginRedirect'=>[
+            'loginRedirect' => [
                 'controller' => 'Dashboard',
                 'action' => 'index'
             ],
-            'logoutRedirect'=>[
+            'logoutRedirect' => [
                 'controller' => 'Dashboard',
                 'action' => 'login'
             ]
         ]);
     }
+
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         $auth_usr = $this->Auth->user();
-        $this->set('auth_usr',$auth_usr);
+        $this->set('auth_usr', $auth_usr);
     }
 
     /**
@@ -94,41 +97,38 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+
     public function isAuthorized($user)
     {
-        $cache_variable = Configure::read('user_role_cache_var').Security::hash($user['user_group_id']);
-        if(empty(Cache::read($cache_variable,'mcake')) || Cache::read($cache_variable,'mcake') === false)
-        {
-            $user_roles = TableRegistry::get('user_group_permissions')->find()->where(['user_group_id'=>$user['user_group_id'],'status'=>1])->toArray();
+        $cache_variable = Configure::read('user_role_cache_var') . Security::hash($user['user_group_id']);
+        if (empty(Cache::read($cache_variable, 'mcake')) || Cache::read($cache_variable, 'mcake') === false) {
+            $user_roles = TableRegistry::get('user_group_permissions')->find()->where(['user_group_id' => $user['user_group_id'], 'status' => 1])->toArray();
             $roles = [];
-            foreach($user_roles as $user_role)
-            {
+            foreach ($user_roles as $user_role) {
                 $roles[strtolower($user_role['controller'])][strtolower($user_role['action'])] = $user_role['status'];
             }
-            Cache::write($cache_variable, $roles,'mcake');
+            Cache::write($cache_variable, $roles, 'mcake');
         }
-        $roles = isset($roles) ? $roles : Cache::read($cache_variable,'mcake');
-        $this->roles=$roles;
+        $roles = isset($roles) ? $roles : Cache::read($cache_variable, 'mcake');
+        $this->roles = $roles;
         $controller = strtolower($this->request->param('controller'));
-        $action  = strtolower($this->request->param('action'));
+        $action = strtolower($this->request->param('action'));
         $permission_free = [
-            'dashboard'=>[
-                'login'=>1,
-                'logout'=>1,
-                'index'=>1
+            'dashboard' => [
+                'login' => 1,
+                'logout' => 1,
+                'index' => 1
             ],
         ];
 
-        if(isset($permission_free[$controller][$action]))
-        {
+        if (isset($permission_free[$controller][$action])) {
             return true;
         }
-        if(isset($roles[$controller][$action]) && $roles[$controller][$action])
-        {
+        if (isset($roles[$controller][$action]) && $roles[$controller][$action]) {
             return true;
         }
         // log error
-        $log_text = '#mazbas_cake# permission_error: actionUrl-' . $controller.'/'.$action.' time:'.time();
+        $log_text = '#mazbas_cake# permission_error: actionUrl-' . $controller . '/' . $action . ' time:' . time();
         $this->log($log_text, LOG_DEBUG);
         return false;
     }

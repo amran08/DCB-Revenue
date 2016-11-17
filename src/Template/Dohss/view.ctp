@@ -27,72 +27,82 @@ $status = \Cake\Core\Configure::read('status_options');
                     <i class="fa fa-picture-o fa-lg"></i><?= __('Dohs Details') ?>
                 </div>
                 <div class="tools">
-                    <?= $this->Html->link(__('Back'), ['action' => 'index'],['class'=>'btn btn-sm btn-success']); ?>
+                    <?= $this->Html->link(__('Back'), ['action' => 'index'], ['class' => 'btn btn-sm btn-success']); ?>
                 </div>
             </div>
             <div class="portlet-body">
                 <div class="table-scrollable">
                     <table class="table table-bordered table-hover">
-                                                                                                        <tr>
-                                    <th><?= __('Title En') ?></th>
-                                    <td><?= h($dohs->title_en) ?></td>
-                                </tr>
-                                                                                                        <tr>
-                                    <th><?= __('Title Bn') ?></th>
-                                    <td><?= h($dohs->title_bn) ?></td>
-                                </tr>
-                                                                                                        <tr>
-                                    <th><?= __('Map File') ?></th>
-                                    <td><?= h($dohs->map_file) ?></td>
-                                </tr>
-                                                                                                                                                                                                                
-                                                            <tr>
-                                    <th><?= __('Total Area') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_area) ?></td>
-                                </tr>
-                                                    
-                                                            <tr>
-                                    <th><?= __('Total Plot Number') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_plot_number) ?></td>
-                                </tr>
-                                                    
-                                                            <tr>
-                                    <th><?= __('Total Building Number') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_building_number) ?></td>
-                                </tr>
-                                                    
-                                                            <tr>
-                                    <th><?= __('Total House Number') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_house_number) ?></td>
-                                </tr>
-                                                    
-                                                            <tr>
-                                    <th><?= __('Total Apartment Number') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_apartment_number) ?></td>
-                                </tr>
-                                                    
-                                                            <tr>
-                                    <th><?= __('Total Market Number') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_market_number) ?></td>
-                                </tr>
-                                                    
-                                                            <tr>
-                                    <th><?= __('Total Shop Number') ?></th>
-                                    <td><?= $this->Number->format($dohs->total_shop_number) ?></td>
-                                </tr>
-                                                                                                                                <tr>
-                                    <th><?= __('Create Time') ?></th>
-                                    <td><?= h($dohs->create_time) ?></tr>
-                                </tr>
-                                                        <tr>
-                                    <th><?= __('Update Time') ?></th>
-                                    <td><?= h($dohs->update_time) ?></tr>
-                                </tr>
-                                                                                                                                <tr>
-                                    <th><?= __('Status') ?></th>
-                                    <td><?= $dohs->status ? __('Yes') : __('No'); ?></td>
-                                 </tr>
-                                                                    </table>
+                        <!--                        <tr>
+                            <th><? __('District') ?></th>
+                            <td><? $dohs->has('district') ? $this->Html->link($dohs->district->name_en, ['controller' => 'Districts', 'action' => 'view', $dohs->district->id]) : '' ?></td>
+                        </tr>
+                        <tr>
+                            <th><? __('Upazila') ?></th>
+                            <td><? $dohs->has('upazila') ? $this->Html->link($dohs->upazila->name_bd, ['controller' => 'Upazilas', 'action' => 'view', $dohs->upazila->id]) : '' ?></td>
+                        </tr>-->
+                        <tr>
+                            <th><?= __('Title English') ?></th>
+                            <td><?= h($dohs->title_en) ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Title Bangla') ?></th>
+                            <td><?= h($dohs->title_bn) ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Map File') ?></th>
+                            <td><?= h($dohs->map_file) ?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Area') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_house_number)?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Plots') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_plot_number)?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Buildings') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_building_number)?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Houses') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_house_number)?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Apartments') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_apartment_number)?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Markets') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_market_number)?></td>
+                        </tr>
+
+                        <tr>
+                            <th><?= __('Total Shops') ?></th>
+                            <td><?= $this->System->en_to_bn($dohs->total_shop_number)?></td>
+                        </tr>
+
+
+                        <tr>
+                            <th><?= __('Status') ?></th>
+                            <td><?= __($status[$dohs->status]) ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Create Time') ?></th>
+                            <td><?= h($dohs->create_time) ?></tr>
+                        </tr>
+                        <tr>
+                            <th><?= __('Update Time') ?></th>
+                            <td><?= h($dohs->update_time) ?></tr>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

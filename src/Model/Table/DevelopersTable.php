@@ -38,7 +38,7 @@ class DevelopersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->add('id', 'valid', ['rule' => 'integer'])
+            ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
             
         $validator
@@ -56,7 +56,7 @@ class DevelopersTable extends Table
             ->allowEmpty('address');
             
         $validator
-            ->add('status', 'valid', ['rule' => 'integer'])
+            ->add('status', 'valid', ['rule' => 'numeric'])
             ->requirePresence('status', 'create')
             ->notEmpty('status');
 

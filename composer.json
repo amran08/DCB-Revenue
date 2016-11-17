@@ -11,7 +11,9 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "josegonzalez/cakephp-upload": "^3.4",
-        "hashids/hashids": "^1.0"
+        "hashids/hashids": "^1.0",
+        "friendsofcake/search": "^2.3",
+        "friendsofcake/CakePdf": "^3.2"
     },
     "require-dev": {
         "psy/psysh": "@stable",

@@ -39,7 +39,6 @@ Enjoy!
 	 */
 	function attrOrProp($el) {
 		var args = Array.prototype.slice.call(arguments, 1);
-
 		if ($el.prop) {
 			// jQuery 1.6+
 			return $el.prop.apply($el, args);
@@ -601,6 +600,10 @@ Enjoy!
 			{
 				// Checkboxes
 				match: function ($el) {
+                    if($el.hasClass("cantonment_simple_checkbox"))
+                    {
+                        return false;
+                    }
 					return $el.is(":checkbox");
 				},
 				apply: function ($el, options) {
