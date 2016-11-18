@@ -57,8 +57,8 @@ class TaxCollectionHistoriesTable extends Table
             ->allowEmpty('collection_date');
 
         $validator
-            ->numeric('late_feee_amount')
-            ->allowEmpty('late_feee_amount');
+            ->numeric('late_fee_amount')
+            ->allowEmpty('late_fee_amount');
 
         $validator
             ->numeric('fine_amount')

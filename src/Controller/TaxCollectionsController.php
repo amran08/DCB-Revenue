@@ -71,24 +71,10 @@ class TaxCollectionsController extends AppController
         $this->loadModel('Buildings');
         $this->loadModel('Houses');
         $this->loadModel('TaxCollectionHistories');
-        //$connect = ConnectionManager::get('default');
-//        $q = "SELECT *
-//                    FROM tax_assessments
-//                    LEFT JOIN tax_collections ON tax_collections.owner_id = tax_assessments.owner_id
-//                  WHERE tax_collections.owner_id  IS NULL";
-//        $sql_execute = $connect->execute($q);
-//        $tax_assessed = $sql_execute->fetchAll('assoc');
-//        debug($tax_assessed); die;
-
-//
 
 
         $tax_assessed = $this->TaxAssessments->find('all')
-            ->contain(['Dohss', 'Owners', 'TaxSettings', 'TaxCollections', 'TaxCollectionHistories'
-//            => function ($q) {
-//                    return $q->where(['TaxCollectionHistories.status' => 1, 'TaxCollectionHistories.tax_assessment_id' => 'TaxAssessments.id']);
-//                }
-            ])
+            ->contain(['Dohss', 'Owners', 'TaxSettings', 'TaxCollections', 'TaxCollectionHistories'])
             ->where(['TaxAssessments.status' => 1])->toArray();
 
         $this->set('tax_assessed', $tax_assessed);
@@ -100,49 +86,51 @@ class TaxCollectionsController extends AppController
             $data['collection_date'] = Date::now();
             $time = time();
             foreach ($data['TaxCollection'] as $key => $value) {
-                $taxCollection = $this->TaxCollections->newEntity();
-                $taxCollection_histories = $this->TaxCollectionHistories->newEntity();
+                // debug($value) ; die;
+                if ($value['total_amount'] + $value['prev_amount'] <= $value['base_amount']) {
+                    //  $taxCollection = $this->TaxCollections->newEntity();
+                    $taxCollection_histories = $this->TaxCollectionHistories->newEntity();
 
-                $collection_data['owner_id'] = $key;
-                $collection_data['economic_year'] = $value['economic_year'];
-                $collection_data['assessed_amount'] = $value['assessed_amount'];
-                $collection_data['base_amount'] = $value['base_amount'];
-                $collection_data['tax_settings_id'] = $value['tax_settings_id'];
-                $collection_data['tax_assessment_id'] = $value['tax_assessment_id'];
-                $collection_data['total_amount'] = $value['total_amount']+$value['prev_amount'];
-                $collection_data['create_time'] = $time;
-                $collection_data['collection_date'] = $data['collection_date'];
-                $collection_data['collected_by'] = $user['id'];
-                $collection_data['status'] = 1;
+                    /*               $collection_data['owner_id'] = $key;
+                                   $collection_data['economic_year'] = $value['economic_year'];
+                                   $collection_data['assessed_amount'] = $value['assessed_amount'];
+                                   $collection_data['base_amount'] = $value['base_amount'];
+                                   $collection_data['tax_settings_id'] = $value['tax_settings_id'];
+                                   $collection_data['tax_assessment_id'] = $value['tax_assessment_id'];
+                                   $collection_data['total_amount'] = $value['total_amount']+$value['prev_amount'];
+                                   $collection_data['create_time'] = $time;
+                                   $collection_data['collection_date'] = $data['collection_date'];
+                                   $collection_data['collected_by'] = $user['id'];
+                                   $collection_data['status'] = 1;
+                   */
+
+                    $collection_history_data['owner_id'] = $key;
+                    $collection_history_data['base_amount'] = $value['base_amount'];
+                    $collection_history_data['rebet_amount'] = $value['rebet_amount'];
+                    $collection_history_data['late_fee_amount'] = $value['late_fee_amount'];
+                    $collection_history_data['fine_amount'] = $value['fine_amount'];
+                    $collection_history_data['tax_assessment_id'] = $value['tax_assessment_id'];
+                    $collection_history_data['collected_amount'] = $value['total_amount'];
+                    // $collection_history_data['create_time'] = $time;
+                    $collection_history_data['collection_date'] = $data['collection_date'];
+                    $collection_history_data['collected_by'] = $user['id'];
+                    $collection_history_data['status'] = 1;
 
 
-                $collection_history_data['owner_id'] = $key;
-                $collection_history_data['base_amount'] = $value['base_amount'];
-                $collection_history_data['rebet_amount'] = $value['rebet_amount'];
-                $collection_history_data['late_fee_amount'] = $value['late_fee_amount'];
-                $collection_history_data['fine_amount'] = $value['fine_amount'];
-                $collection_history_data['tax_assessment_id'] = $value['tax_assessment_id'];
-                $collection_history_data['collected_amount'] = $value['total_amount'];
-                // $collection_history_data['create_time'] = $time;
-                $collection_history_data['collection_date'] = $data['collection_date'];
-                $collection_history_data['collected_by'] = $user['id'];
-                $collection_history_data['status'] = 1;
+                    //  $taxCollection = $this->TaxCollections->patchEntity($taxCollection, $collection_data);
 
+                    $taxCollection_histories = $this->TaxCollectionHistories->patchEntity($taxCollection_histories, $collection_history_data);
 
-                $taxCollection = $this->TaxCollections->patchEntity($taxCollection, $collection_data);
+                    if ($this->TaxCollectionHistories->save($taxCollection_histories)) {
 
-                $taxCollection_histories = $this->TaxCollectionHistories->patchEntity($taxCollection_histories, $collection_history_data);
-
-                if ($this->TaxCollectionHistories->save($taxCollection_histories)) {
-
-                  // $this->TaxCollections->save($taxCollection);
-                    $this->Flash->success('The tax collection has been saved.');
-                } else {
-                    $this->Flash->error('The tax collection could not be saved. Please, try again.');
+                        // $this->TaxCollections->save($taxCollection);
+                        $this->Flash->success('The tax collection has been saved.');
+                    } else {
+                        $this->Flash->error('The tax collection could not be saved. Please, try again.');
+                    }
                 }
-
             }
-            return $this->redirect(['action' => 'index']);
+            return $this->redirect(['action' => 'add']);
         }
 
     }
@@ -188,6 +176,8 @@ class TaxCollectionsController extends AppController
      * @return void Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
+
+
     public function delete($id = null)
     {
 

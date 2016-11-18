@@ -768,6 +768,9 @@ msgstr "জরিমানা"
 msgid "Collection Amount"
 msgstr "আদায়কৃত পরিমাণ"
 
+msgid "Collected Amount"
+msgstr "আদায়কৃত পরিমাণ
+
 msgid "Collection Date"
 msgstr "আদায়ের তারিখ"
 

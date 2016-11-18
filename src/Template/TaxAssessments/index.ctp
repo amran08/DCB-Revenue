@@ -36,7 +36,10 @@ $status = \Cake\Core\Configure::read('status_options');
                             <th><?= __('Sl. No.') ?></th>
 
                             <th><?= __('Owners') ?></th>
+
                             <th><?= __('Property Type Table Name') ?></th>
+                            <th><?= __('Assessed Amount') ?></th>
+                            <th><?= __('Total Amount') ?></th>
                             <th><?= __('Actions') ?></th>
                         </tr>
                         </thead>
@@ -51,7 +54,9 @@ $status = \Cake\Core\Configure::read('status_options');
                                             'action' => 'view', $taxAssessment->owner
                                                 ->id]) : '' ?></td>
 
-                                <td><?= __(h($taxAssessment->property_type_table_name)) ?></td>
+                                <td><?= h(__($taxAssessment->property_type_table_name))?></td>
+                                <td><?= $this->Number->format($taxAssessment->assessed_amount) ?></td>
+                                <td><?= $this->Number->format($taxAssessment->total_amount) ?></td>
                                 <td class="actions">
                                     <?php
                                     echo $this->Html->link(__('View'), ['action' => 'view', $taxAssessment->id], ['class' => 'btn btn-sm btn-info']);

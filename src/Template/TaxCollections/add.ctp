@@ -45,13 +45,9 @@ use Cake\Database\Schema\Collection;
                             <tr>
                                 <th><?= __('Name (Bangla)') ?></th>
                                 <th><?= __('Property Type Table Name') ?></th>
-
-
                                 <th><?= __('Assessed Amount') ?></th>
-
                                 <th><?= __('Rebet') ?></th>
                                 <th><?= __('Late Fee') ?></th>
-
                                 <th><?= __('Fine') ?></th>
                                 <th><?= __('Base') ?></th>
                                 <th><?= __('Previously Collected Amount') ?></th>
@@ -80,8 +76,8 @@ use Cake\Database\Schema\Collection;
                                     $property_type_table_name = $tax_assessed['property_type_table_name'];
 
                                     ?>
-                                    <td><?= $tax_assessed['owner']['name_bn'];
-                                        ?></td>
+                                    <td><a href="<?php echo $this->url->build('/TaxCollectionHistories/edit/'.$tax_assessed['id']);?>"><?= $tax_assessed['owner']['name_bn'];
+                                        ?></a></td>
                                     <td><?= $tax_assessed['owner']['property_type_table_name'];
                                         ?></td>
                                     <?= $this->Form->input('TaxCollection.' . $owner_id . '', ['name' => 'TaxCollection[' . $owner_id . '][economic_year]', 'label' => false, 'default' => $economic_year, 'onpaste' => 'return false;', 'type' => 'hidden', 'class' => 'form-control any-number-validation']);
@@ -143,7 +139,8 @@ use Cake\Database\Schema\Collection;
 
 
                                     <td>
-                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][total_amount]', 'label' => false, 'readonly' => false, 'default' => '', 'type' => 'text', 'required' => true, 'autocomplete' => 'off', 'class' => 'form-control any-number-validation total-amount-collected']);
+                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][total_amount]', 'label' => false, 'readonly' => true, 'default' => '', 'type' => 'text', 'required' => true, 'autocomplete' => 'off', 'class' => 'form-control any-number-validation total-amount-collected']); ?>
+                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][total_amount]', 'label' => false, 'type' => 'hidden', 'class' => 'form-control any-number-validation total-amount-collected']);
 
                                         ?>
                                     </td>
@@ -168,9 +165,71 @@ use Cake\Database\Schema\Collection;
 </div>
 </div>
 
+<div id="responsive" class="modal fade" tabindex="-1" data-width="760">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title">Responsive</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Some Input</h4>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h4>Some More Input</h4>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+                <p>
+                    <input class="form-control" type="text">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+        <button type="button" class="btn blue">Save changes</button>
+    </div>
+</div>
 <?php
 
-debug($collection_amount);
+///debug($collection_amount);
 ?>
 <script>
     $(document).ready(function () {

@@ -86,6 +86,7 @@ $user = $this->request->Session()->read('Auth')['User'];
           type="text/css"/>
 
 
+
     <script type="text/javascript"
             src="<?php echo $this->request->webroot; ?>assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript"

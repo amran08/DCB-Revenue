@@ -1,4 +1,5 @@
-<?php
+<a class="btn default" data-toggle="modal" href="#responsive">
+    View Demo </a><?php
 use Cake\Core\Configure;
 
 ?>
@@ -38,15 +39,15 @@ use Cake\Core\Configure;
                     <div class="col-md-6 col-md-offset-3">
                         <?php
                         echo $this->Form->input('owner_id', ['disabled' => true]);
-                        echo $this->Form->input('base_amount',['label'=>__('Base'),'disabled' => true]);
-                        echo $this->Form->input('rebet_amount',['label'=>__('Rebet')]);
-                        echo $this->Form->input('late_fee_amount',['label'=>__('Late Fee')]);
-                        echo $this->Form->input('fine_amount',['label'=>__('Fine')]);
-                        echo $this->Form->input('assessed_amount',['label'=>__('Assessed Amount'),'disabled' => true]);
-                        echo $this->Form->input('total_amount',['label'=>__('Total Amount')]);
+                        echo $this->Form->input('base_amount', ['label' => __('Base'), 'disabled' => true]);
+                        echo $this->Form->input('rebet_amount', ['label' => __('Rebet')]);
+                        echo $this->Form->input('late_fee_amount', ['label' => __('Late Fee')]);
+                        echo $this->Form->input('fine_amount', ['label' => __('Fine')]);
+                        echo $this->Form->input('assessed_amount', ['label' => __('Assessed Amount'), 'disabled' => true]);
+                        echo $this->Form->input('total_amount', ['label' => __('Total Amount')]);
 
-                        echo $this->Form->input('economic_year',['label'=>__('Economic Year'),'readonly' => true]);
-                        echo $this->Form->input('collection_date', ['label'=>__('Collection Date'),'type' => 'text', 'class' => 'form-control datepicker']);
+                        echo $this->Form->input('economic_year', ['label' => __('Economic Year'), 'readonly' => true]);
+                        echo $this->Form->input('collection_date', ['label' => __('Collection Date'), 'type' => 'text', 'class' => 'form-control datepicker']);
                         echo $this->Form->input('status', ['options' => Configure::read('status_options')]);
                         ?>
                         <?= $this->Form->button(__('Submit'), ['class' => 'btn blue pull-right', 'style' => 'margin-top:20px']) ?>

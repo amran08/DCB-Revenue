@@ -31,7 +31,7 @@ class OwnersTable extends Table
         parent::initialize($config);
 
         $this->table('owners');
-        $this->displayField('name_bn');
+        $this->displayField('id');
         $this->primaryKey('id');
 
         $this->addBehavior('Search.Search');
@@ -55,20 +55,19 @@ class OwnersTable extends Table
         ]);
 
 
-
+//        $this->hasMany('OwnerBasicInfos', [
+//            'foreignKey' => 'owner_id'
+//        ]);
 //        $this->hasMany('ShopFiles', [
 //            'foreignKey' => 'owner_id'
 //        ]);
 
-        $this->hasOne('TaxAssessments', [
-            'foreignKey' => 'owner_id'
-        ]);
-
-        $this->hasOne('TaxCollections', [
-            'foreignKey' => 'owner_id'
-        ]);
-
-
+//        $this->hasMany('TaxAssessments', [
+//            'foreignKey' => 'owner_id'
+//        ]);
+//        $this->hasMany('TaxCollections', [
+//            'foreignKey' => 'owner_id'
+//        ]);
     }
 
     /**
