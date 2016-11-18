@@ -3,6 +3,11 @@ use Cake\Core\Configure;
 use Cake\Database\Schema\Collection;
 
 ?>
+<style>
+    .form-group {
+        width: 190px;
+    }
+</style>
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -39,6 +44,7 @@ use Cake\Database\Schema\Collection;
                 </div>
 
                 <div class="portlet-body">
+                    <?= $this->Form->create('TaxCollection', ['class' => 'form-horizontal form-xlarge', 'role' => 'form']) ?>
                     <div class="table-scrollable">
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -56,7 +62,7 @@ use Cake\Database\Schema\Collection;
 
                             </tr>
                             </thead>
-                            <?= $this->Form->create('TaxCollection', ['class' => 'form-horizontal', 'role' => 'form']) ?>
+
                             <tbody>
                             <?php
                             $collection_amount = [];
@@ -76,8 +82,9 @@ use Cake\Database\Schema\Collection;
                                     $property_type_table_name = $tax_assessed['property_type_table_name'];
 
                                     ?>
-                                    <td><a href="<?php echo $this->url->build('/TaxCollectionHistories/edit/'.$tax_assessed['id']);?>"><?= $tax_assessed['owner']['name_bn'];
-                                        ?></a></td>
+                                    <td>
+                                        <a href="<?php echo $this->url->build('/TaxCollectionHistories/edit/' . $tax_assessed['id']); ?>"><?= $tax_assessed['owner']['name_bn'];
+                                            ?></a></td>
                                     <td><?= $tax_assessed['owner']['property_type_table_name'];
                                         ?></td>
                                     <?= $this->Form->input('TaxCollection.' . $owner_id . '', ['name' => 'TaxCollection[' . $owner_id . '][economic_year]', 'label' => false, 'default' => $economic_year, 'onpaste' => 'return false;', 'type' => 'hidden', 'class' => 'form-control any-number-validation']);
@@ -132,18 +139,19 @@ use Cake\Database\Schema\Collection;
 
                                     ?>
                                     <td>
-                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][collection_amount]', 'label' => false, 'default' => '', 'type' => 'text', 'class' => 'form-control any-number-validation get-sum-class', 'onpaste' => 'return false;']);
+                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][collection_amount]', 'label' => false, 'default' => '', 'required' => true, 'type' => 'text', 'class' => 'form-control any-number-validation get-sum-class collection-amount', 'onpaste' => 'return false;', 'autocomplete' => "off"]);
 
                                         ?>
                                     </td>
 
 
                                     <td>
-                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][total_amount]', 'label' => false, 'readonly' => true, 'default' => '', 'type' => 'text', 'required' => true, 'autocomplete' => 'off', 'class' => 'form-control any-number-validation total-amount-collected']); ?>
+                                        <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][total_amount]', 'label' => false, 'readonly' => true, 'default' => '', 'type' => 'text', 'required' => false, 'autocomplete' => 'off', 'class' => 'form-control any-number-validation total-amount-collected col-lg-12']); ?>
                                         <?= $this->Form->input('TaxCollection.' . $owner_id . '""', ['name' => 'TaxCollection[' . $owner_id . '][total_amount]', 'label' => false, 'type' => 'hidden', 'class' => 'form-control any-number-validation total-amount-collected']);
 
                                         ?>
                                     </td>
+
                                 </tr>
 
                             <?php }
@@ -165,72 +173,6 @@ use Cake\Database\Schema\Collection;
 </div>
 </div>
 
-<div id="responsive" class="modal fade" tabindex="-1" data-width="760">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h4 class="modal-title">Responsive</h4>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Some Input</h4>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-            </div>
-            <div class="col-md-6">
-                <h4>Some More Input</h4>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-                <p>
-                    <input class="form-control" type="text">
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-        <button type="button" class="btn blue">Save changes</button>
-    </div>
-</div>
-<?php
-
-///debug($collection_amount);
-?>
 <script>
     $(document).ready(function () {
 
@@ -255,6 +197,7 @@ use Cake\Database\Schema\Collection;
 
             if (thisRow.closest('tr').find('.base-amount').val() < sum) {
                 $this.val("");
+                thisRow.closest('tr').find('.collection-amount').val("");
                 thisRow.closest('tr').find('.total-amount-collected').val("");
                 return $("body").overhang({
                     type: "error",

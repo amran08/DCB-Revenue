@@ -785,3 +785,6 @@ msgstr "আসল করের পরিমাণ"
 
 msgid "Previously Collected Amount"
 msgstr "পূর্বে  আদায়কৃত"
+
+msgid "কর হার"
+msgstr "Tax Rate"

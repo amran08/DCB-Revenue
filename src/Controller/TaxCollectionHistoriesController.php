@@ -82,7 +82,7 @@ class TaxCollectionHistoriesController extends AppController
 
         $taxCollectionHistory = $this->TaxCollectionHistories->find('all')
             ->contain(['TaxAssessments', 'Owners'])
-            ->where(['TaxCollectionHistories.tax_assessment_id' => $assessment_id])->toArray();
+            ->where(['TaxCollectionHistories.tax_assessment_id' => $assessment_id]);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             // $taxCollectionHistory = $this->TaxCollectionHistories->patchEntity($taxCollectionHistory, $this->request->data);
@@ -96,7 +96,7 @@ class TaxCollectionHistoriesController extends AppController
         //  $owners = $this->TaxCollectionHistories->Owners->find('list', ['limit' => 200]);
         $owner_name_property = $this->TaxCollectionHistories->find('all')
             ->contain('Owners')
-            ->where(['TaxCollectionHistories.tax_assessment_id' => $assessment_id])->first()->toArray();
+            ->where(['TaxCollectionHistories.tax_assessment_id' => $assessment_id])->first();
         $this->set(compact('taxCollectionHistory', 'owner_name_property', 'taxAssessments'));
         $this->set('_serialize', ['taxCollectionHistory']);
     }

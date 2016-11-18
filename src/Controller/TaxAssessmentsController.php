@@ -126,6 +126,8 @@ class TaxAssessmentsController extends AppController
         $sql_execute = $connect->execute($q);
         $owner_list = $sql_execute->fetchAll('assoc');
 
+        //  debug($owner_list); die;
+
 
         // $this->set('property_to_assess', $property_to_assess);
 
@@ -142,12 +144,13 @@ class TaxAssessmentsController extends AppController
                 return $this->Flash->error('Tax Assessment Settings not Found For this Economic Year.');
             }
             foreach ($owner_list as $key => $owners) {
-
+                // debug($owners);
                 if ($owners['ownership_type'] == $tax_rate_from_settings_table['owner_type'] && $owners['usage_type'] == $tax_rate_from_settings_table['usage_type']
                     && $economic_year == $tax_rate_from_settings_table['economic_year']
                 ) {
 
                     if ($owners['property_type_table_name'] == "Apartments") {
+
                         $apartments = $this->Apartments->find('all')->contain(['Dohss'])->where(['Apartments.id' => $owners['property_id'],
                             'Apartments.status' => 1,
                         ])->toArray();
@@ -169,8 +172,6 @@ class TaxAssessmentsController extends AppController
                         $apartment_data['dohss_title_bn'] = $apartments[0]['dohs']['title_bn'];
 
                         $tax_calculation['Apartments'][$key] = $apartment_data;
-
-
                     }
 
                     if ($owners['property_type_table_name'] == "Plots") {
@@ -195,12 +196,14 @@ class TaxAssessmentsController extends AppController
                         $plot_data['dohss_title_bn'] = $plots[0]['dohs']['title_bn'];
 
                         $tax_calculation['Plots'][$key] = $plot_data;
+
                     }
                     if ($owners['property_type_table_name'] == "Buildings") {
 
                         $buildings = $this->Buildings->find('all')->contain(['Dohss'])->where(['Buildings.id' => $owners['property_id'],
                             'Buildings.status' => 1,
                         ])->toArray();
+
 
                         $tax_assessed = $buildings[0]['build_site_area'] * $tax_rate_from_settings_table['tax_rate'];
 
@@ -219,6 +222,7 @@ class TaxAssessmentsController extends AppController
                         $building_data['dohss_title_bn'] = $buildings[0]['dohs']['title_bn'];
 
                         $tax_calculation['Buildings'][$key] = $building_data;
+
 
                     }
 
@@ -240,7 +244,6 @@ class TaxAssessmentsController extends AppController
                         $house_data['owner_name'] = $owners['name_bn'];
                         $house_data['dohss_title_bn'] = $houses[0]['dohs']['title_bn'];
                         $tax_calculation['Houses'][$key] = $house_data;
-
                     }
                 }
             }

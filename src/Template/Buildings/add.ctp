@@ -655,6 +655,7 @@ use Cake\Core\Configure;
                     this.name = this.name.replace(/\d+/, index);
                 }).end();
 
+                console.log(html);
                 var add_more = '<button id="add_apartment" type ="button" class="btn btn-sm btn-primary" style="margin-left: 10px;"><?php echo __("Add More Apartments")?></button>';
                 var rmv = '<button type ="button" class="remove btn btn-sm btn-danger" style="margin-left: 10px;"><?php echo __("Remove Apartment")?></button>';
                 $('.apartment_wrp').append(add_more);
@@ -698,19 +699,11 @@ use Cake\Core\Configure;
                 var html = $('.house_owner_wrp').find('.house_owner:first').clone().find('.form-control').each(function () {
                     if ($(this).hasClass('datepicker') == true) {
                         $(this).datepicker({format: 'yyyy-mm-dd'});
-                        this.id = this.id.replace(/\d+/, index);
-                        this.name = this.name.replace(/\d+/, index);
                     }
-                    else if (this.type == 'select-one') {
-                        var options_select_box = $(this).html();
-                        $(this).html(options_select_box);
-                        this.id = this.id.replace(/\d+/, index);
-                        this.name = this.name.replace(/\d+/, index);
-                    }
-                    else
-                        this.value = "";
+                    this.value = "";
                     this.id = this.id.replace(/\d+/, index);
                     this.name = this.name.replace(/\d+/, index);
+
 
                 }).end();
                 var rmv = '<button type ="button" class="remove-house-owner btn btn-sm btn-danger" style="margin-left: 215px;"><?php echo __("Remove Owner")?></button>';
@@ -729,21 +722,21 @@ use Cake\Core\Configure;
 
                     if ($(this).hasClass('datepicker') == true) {
                         $(this).datepicker({format: 'yyyy-mm-dd'});
+                    }
+                    else if (this.type == 'checkbox') {
+                        $(this).removeAttr('checked');
                         this.id = this.id.replace(/\d+/, index);
                         this.name = this.name.replace(/\d+/, index);
                     }
-                    else if (this.type == 'select-one') {
-                        var options_select_box = $(this).html();
-                        $(this).html(options_select_box);
-                        this.id = this.id.replace(/\d+/, index);
-                        this.name = this.name.replace(/\d+/, index);
-                    }
-                    else
+                    else {
                         this.value = "";
-                    this.id = this.id.replace(/\d+/, index);
-                    this.name = this.name.replace(/\d+/, index);
+                        this.id = this.id.replace(/\d+/, index);
+                        this.name = this.name.replace(/\d+/, index);
+                    }
+
                 }).end();
 
+                console.log(html);
                 var add_more = '<button type ="button" id="add_owner"  class="btn btn-sm btn-primary" style="margin-left: 189px;"><?php echo __("Add More Owners")?></button>';
                 var rmv = '<button type ="button" class="remove-owner btn btn-sm btn-danger" style="margin-left: 215px;"><?php echo __("Remove Owner")?></button>';
 
